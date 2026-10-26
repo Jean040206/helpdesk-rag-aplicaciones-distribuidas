@@ -1,0 +1,74 @@
+/* ==========================================================================
+   HelpDesk RAG - Grupo 02 | Estilos de Interfaz
+   ========================================================================== */
+
+body {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+}
+
+.sidebar .nav-link {
+    color: #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    padding: 10px 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.topbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+
+.kpi-card {
+    transition: transform 0.15s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+}
+
+.rag-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+}
+
+.login-bg {
+    background: radial-gradient(circle at top left, #1e293b, #0f172a);
+    min-height: 100vh;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.pre-wrap-text {
+    white-space: pre-line;
+}
