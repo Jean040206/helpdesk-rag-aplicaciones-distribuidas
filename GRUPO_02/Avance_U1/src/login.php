@@ -48,7 +48,7 @@ $usuariosDemo = $pdo->query("
         <div class="col-md-5">
             <div class="card shadow-lg rounded-4 p-4">
                 <div class="text-center mb-4">
-                    <img src="assets/img/logo-helpdesk.svg" alt="Logo" width="54" height="54" class="mb-2">
+                    <img src="assets/img/logo.svg" alt="Logo" width="110">
                     <h3 class="fw-bold mb-0">HelpDesk RAG</h3>
                     <p class="text-muted small mb-0">Grupo 02 • Gestión Inteligente de Tickets y Soporte TI</p>
                 </div>

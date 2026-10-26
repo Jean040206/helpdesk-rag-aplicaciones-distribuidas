@@ -45,7 +45,7 @@ $perfilesDemo  = $pdo->query("
         <!-- Sidebar de Navegación -->
         <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
             <a href="index.php" class="d-flex align-items-center mb-4 pb-2 border-bottom border-secondary text-decoration-none text-white">
-                <img src="assets/img/logo-helpdesk.svg" alt="Logo HelpDesk RAG" class="brand-logo me-2">
+                <img src="assets/img/logo.svg" alt="Logo HelpDesk RAG" width="160" class="brand-logo me-2">
                 <div>
                     <div class="fw-bold fs-6 lh-1">HelpDesk RAG</div>
                     <small class="text-info" style="font-size: 0.72rem;">GRUPO 02 • UNS</small>
