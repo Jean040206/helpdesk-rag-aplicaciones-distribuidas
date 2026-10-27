@@ -185,7 +185,7 @@ CREATE TABLE auditoria (
     CONSTRAINT fk_auditoria_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- Datos de prueba (todos sintéticos)
+-- Datos de prueba (con nombres reales)
 
 INSERT INTO roles (nombre, descripcion) VALUES
 ('Solicitante', 'Usuario institucional que registra tickets de soporte y adjunta evidencias'),
@@ -195,12 +195,12 @@ INSERT INTO roles (nombre, descripcion) VALUES
 
 -- todos los usuarios tienen la clave 123456 (guardada con hash bcrypt)
 INSERT INTO usuarios (id_rol, codigo_institucional, nombre_completo, email, password_hash, dependencia_oficina, especialidad_ti) VALUES
-(1, 'DOC-2026-01', 'Docente Demo (dato sintético)', 'docente.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Facultad de Ingeniería', NULL),
-(1, 'ADM-2026-02', 'Registro Demo (dato sintético)', 'registro.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Dirección de Evaluación y Registro', NULL),
-(2, 'SUP-2026-01', 'Supervisor Demo (dato sintético)', 'supervisor.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Oficina de Tecnologías de Información', 'Gestión de Servicios TI - ITIL'),
-(3, 'TEC-2026-01', 'Técnico Demo Uno (dato sintético)', 'tecnico1.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Soporte de Sistemas y Cuentas', 'Sistemas Institucionales y Correo'),
-(3, 'TEC-2026-02', 'Técnico Demo Dos (dato sintético)', 'tecnico2.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Unidad de Redes y Hardware', 'Redes, Conectividad e Impresoras'),
-(4, 'ADM-2026-99', 'Administrador Demo (dato sintético)', 'admin.demo@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Oficina Central de TI', 'Administración de Plataforma');
+(1, 'DOC-2026-01', 'Luis Chavez', 'luis.chavez@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Facultad de Ingeniería', NULL),
+(1, 'ADM-2026-02', 'Sander Olortigue', 'sander.olortigue@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Dirección de Evaluación y Registro', NULL),
+(2, 'SUP-2026-01', 'Dantin Prado', 'dantin.prado@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Oficina de Tecnologías de Información', 'Gestión de Servicios TI - ITIL'),
+(3, 'TEC-2026-01', 'Walter Flores', 'walter.flores@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Soporte de Sistemas y Cuentas', 'Sistemas Institucionales y Correo'),
+(3, 'TEC-2026-02', 'Yampier Salianas', 'yampier.salianas@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Unidad de Redes y Hardware', 'Redes, Conectividad e Impresoras'),
+(4, 'ADM-2026-99', 'Michel Crisanto', 'michel.crisanto@demo.test', '$2y$10$FBTRs6TCkrU7.QJxB8S9hOJmo6MYiGYy7CVAXBCXUgKBtTLnFt7Ki', 'Oficina Central de TI', 'Administración de Plataforma');
 
 INSERT INTO servicios (codigo_servicio, nombre, descripcion) VALUES
 ('SRV-SIS', 'Sistemas Institucionales', 'Sistema Académico, intranet docente, matrícula y gestión administrativa'),
@@ -278,16 +278,16 @@ INSERT INTO tickets (codigo_ticket, id_solicitante, id_tecnico_asignado, id_supe
  NULL);
 
 INSERT INTO ticket_seguimiento (id_ticket, id_usuario, comentario, tipo_registro) VALUES
-(1, 3, 'Ticket revisado por supervisión y asignado al Técnico Demo Uno por corresponder a Sistemas Institucionales.', 'Comentario'),
+(1, 3, 'Ticket revisado por supervisión y asignado al técnico Walter Flores por corresponder a Sistemas Institucionales.', 'Comentario'),
 (2, 4, 'Se consultó el procedimiento KB-2026-002 en la base de conocimiento para desbloqueo de cuenta institucional.', 'Diagnostico');
 
 INSERT INTO ticket_historial (id_ticket, id_estado_anterior, id_estado_nuevo, id_usuario_responsable, observacion) VALUES
 (1, NULL, 1, 1, 'Creación inicial del ticket por el usuario solicitante'),
-(1, 1, 2, 3, 'Asignado al técnico Técnico Demo Uno por el supervisor'),
+(1, 1, 2, 3, 'Asignado al técnico Walter Flores por el supervisor'),
 (2, NULL, 1, 2, 'Creación inicial del ticket por el usuario solicitante'),
 (2, 1, 3, 4, 'Ticket en proceso de diagnóstico con apoyo de Base de Conocimiento'),
 (3, NULL, 1, 1, 'Creación inicial del ticket por el usuario solicitante');
 
 INSERT INTO auditoria (id_usuario, modulo, accion, descripcion_evento) VALUES
 (1, 'Tickets', 'REGISTRO_TICKET', 'Usuario registró el ticket TKT-2026-0001 (Sistemas Institucionales)'),
-(3, 'Supervisión', 'ASIGNAR_TECNICO', 'Supervisor asignó TKT-2026-0001 al técnico Técnico Demo Uno');
+(3, 'Supervisión', 'ASIGNAR_TECNICO', 'Supervisor asignó TKT-2026-0001 al técnico Walter Flores');
